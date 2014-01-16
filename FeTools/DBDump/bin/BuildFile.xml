@@ -1,0 +1,60 @@
+<use   name="CondCore/Utilities"/>
+<bin   file="lava_text.cpp" name="lava_text">
+  <use   name="CondFormats/EcalObjects"/>
+  <use   name="CalibCalorimetry/EcalLaserAnalyzer"/>
+  <use   name="rootgraphics"/>
+  <use   name="rootcore"/>
+</bin>
+<bin   file="lava_db.cpp" name="lava_db">
+  <use   name="CondFormats/EcalObjects"/>
+  <use   name="CalibCalorimetry/EcalLaserAnalyzer"/>
+  <use   name="rootgraphics"/>
+  <use   name="rootcore"/>
+</bin>
+<bin   file="lava_db_compare.cpp" name="lava_db_compare">
+  <use   name="CondFormats/EcalObjects"/>
+  <use   name="CalibCalorimetry/EcalLaserAnalyzer"/>
+  <use   name="rootgraphics"/>
+  <use   name="rootcore"/>
+</bin>
+<bin   file="lava_db_cond.cpp" name="lava_db_cond">
+  <use   name="CondFormats/EcalObjects"/>
+  <use   name="CalibCalorimetry/EcalLaserAnalyzer"/>
+  <use   name="rootgraphics"/>
+  <use   name="rootcore"/>
+</bin>
+<bin   file="lava_db_dumpId.cpp" name="lava_db_dumpId">
+  <use   name="CondFormats/EcalObjects"/>
+  <use   name="CalibCalorimetry/EcalLaserAnalyzer"/>
+  <use   name="rootgraphics"/>
+  <use   name="rootcore"/>
+</bin>
+<bin   file="ic_dump.cpp" name="ic_dump">
+  <use   name="CondFormats/EcalObjects"/>
+</bin>
+<bin   file="adc2gev_dump.cpp" name="adc2gev_dump">
+  <use   name="CondFormats/EcalObjects"/>
+</bin>
+<bin   file="alpha_dump.cpp" name="alpha_dump">
+  <use   name="CondFormats/EcalObjects"/>
+</bin>
+<bin   file="esgain_dump.cpp" name="esgain_dump">
+  <use   name="CondFormats/ESObjects"/>
+</bin>
+<bin   file="esic_dump.cpp" name="esic_dump">
+  <use   name="CondFormats/ESObjects"/>
+</bin>
+<bin   file="eseeic_dump.cpp" name="eseeic_dump">
+  <use   name="CondFormats/ESObjects"/>
+</bin>
+<bin   file="runinfo_dump.cpp" name="runinfo_dump">
+  <use   name="CondFormats/RunInfo"/>
+</bin>
+<bin   file="bs_dump.cpp" name="bs_dump">
+  <use   name="CondFormats/BeamSpotObjects"/>
+</bin>
+<bin   file="chstatus_dump.cpp" name="chstatus_dump">
+  <use   name="CondFormats/EcalObjects"/>
+</bin>
+<bin   file="merge_dump.cpp" name="merge_dump">
+</bin>
