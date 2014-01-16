@@ -115,7 +115,7 @@ int cond::ESGainDump::execute()
                 int max_run = std::numeric_limits<int>::max();
                 if( hasOptionValue("max_run" )) max_run = getOptionValue<int>("max_run");
 
-                bool verbose = hasOptionValue("verbose");
+                //bool verbose = hasOptionValue("verbose");
 
                 //cond::IOVProxy iov(session, getToken(session, tag));
                 cond::IOVProxy iov(session, token);
@@ -141,7 +141,7 @@ int cond::ESGainDump::execute()
                 //std::cout
                 //        <<"since \t till \t payloadToken"<<std::endl;
 
-                static const unsigned int nIOVS = std::distance(iov.begin(), iov.end());
+                //static const unsigned int nIOVS = std::distance(iov.begin(), iov.end());
 
                 //std::cout << "nIOVS: " << nIOVS << "\n";
 
