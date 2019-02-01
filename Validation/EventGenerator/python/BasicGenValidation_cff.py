@@ -43,13 +43,23 @@ genLeptons_seq = cms.Sequence(genParticlesShortList*genParticlesMuons*genParticl
 analyzeGenLeptons_seq = cms.Sequence(analyzeGenMuons*analyzeGenElecs*analyzeGenNtrns)
 TTbarfull_seq = cms.Sequence(TTbarAnalyzeSpinCorr*analyzeTopKinematics*genLeptons_seq*analyzeGenLeptons_seq*analyzeGenJets)
 bphysics = cms.Sequence(JPsiMuMuValidation*LambdabPiPiMuMuValidation*LambdaSpectrum*PsiSpectrum)
-gjetValidation_seq = cms.Sequence(gjetValidation)
+
+# redo jets removing prompt photons (via the prunedForJets
+from RecoJets.JetProducers.ak4GenJets_cfi import ak4GenJets
+ak4GenJetsNew = ak4GenJets.clone()
+from RecoJets.Configuration.GenJetParticles_cff import genParticlesForJets
+genParticlesForJets.src = "prunedForJets"
+gjetValidation.genjetCollection = "ak4GenJetsNew"
+gjetValidation_seq = cms.Sequence(prunedForJets * genParticlesForJets * ak4GenJetsNew * gjetValidation)
+#gjetValidation_seq = cms.Sequence(gjetValidation)
+
 # master sequences for different processes/topologies validation
 
 genvalid = cms.Sequence(basicGenTest_seq)
 genvalid_qcd = cms.Sequence(basicGenTest_seq+mbueAndqcdValidation_seq)
 genvalid_dy = cms.Sequence(basicGenTest_seq+mbueAndqcdValidation_seq+drellYanValidation_seq+tauValidation_seq)
 genvalid_w = cms.Sequence(basicGenTest_seq+mbueAndqcdValidation_seq+wValidation_seq+tauValidation_seq)
-genvalid_gj = cms.Sequence(basicGenTest_seq+gjetValidation_seq)
+#genvalid_gj = cms.Sequence(basicGenTest_seq+gjetValidation_seq)
+genvalid_gj = cms.Sequence(gjetValidation_seq)
 genvalid_all = cms.Sequence(basicGenTest_seq+mbueAndqcdValidation_seq+drellYanValidation_seq+wValidation_seq+tauValidation_seq+TTbarfull_seq+higgsValidation+bphysics+gjetValidation_seq)
 genvalid_all_and_dup_check = cms.Sequence(duplicationChecker_seq+genvalid_all)
